@@ -10,6 +10,7 @@ class BooksController < ApplicationController
     @book.save
     redirect_to book_path(params[:id])
   end
+  
   def show
   end
 
