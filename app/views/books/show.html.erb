@@ -16,16 +16,20 @@
               <%= link_to @book.title, book_path(@book.id) %>
             </td>
             <td>
-              <%= @book.opinion %>
+              <%= @book.body %>
             </td>
             <td>
-              <%= link_to edit_book_path(@book.id), class: "btn btn-sm btn-success" do %>
-                Edit
+              <% if @book.user == current_user %>
+                <%= link_to edit_book_path(@book.id), class: "btn btn-sm btn-success" do %>
+                  Edit
+                <% end %>
               <% end %>
             </td>
             <td>
-              <%= link_to book_path(@book.id), method: :delete, data: {confilm: "Are you sure?"}, class: "btn btn-sm btn-danger" do %>
-                Destroy
+              <% if @book.user == current_user %>
+                <%= link_to book_path(@book.id), method: :delete, data: {confilm: "Are you sure?"}, class: "btn btn-sm btn-danger" do %>
+                  Destroy
+                <% end %>
               <% end %>
             </td>
           </tr>
